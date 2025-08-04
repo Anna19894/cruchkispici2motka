@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пряжа "Крючки, спицы, 2 мотка"</title>
+    <style>
+        body {
+font-family: 'Georgia', serif !important;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, 
+                #FF8C42 0%,     
+                #FFA726 15%,    
+                #FFB74D 30%,    
+                #FFCC80 45%,    
+                #FFE082 60%,    
+                #FFECB3 75%,    
+                #FFF3E0 90%,
+                #FFFFFF 100%    
+            );
+            background-size: 300% 300%;
+            animation: gradientShift 10s ease infinite;
+            font-family: 'Georgia', serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            color: rgba(61, 53, 53, 0.95);
+        }
+
+       * {
+            color: rgba(61, 53, 53, 0.95) !important;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .sparkle {
+            position: fixed;
+            width: 3px;
+            height: 3px;
+            background: radial-gradient(circle, #FF1493 0%, #FF69B4 50%, #DA70D6 80%, transparent 100%);
+            border-radius: 50%;
+            animation: sparkleFloat 12s infinite linear, sparkleGlow 2s infinite ease-in-out;
+            opacity: 0;
+            box-shadow: 0 0 8px #FFD700, 0 0 16px #FFA500, 0 0 24px rgba(255, 140, 0, 0.4);
+        }
+        
+        .sparkle:nth-child(1) { left: 5%; top: 10%; animation-delay: 0s, 0.2s; animation-duration: 14s, 1.8s; }
+        .sparkle:nth-child(2) { left: 15%; top: 20%; animation-delay: 0.4s, 0.6s; animation-duration: 16s, 2.2s; }
+        .sparkle:nth-child(3) { left: 25%; top: 30%; animation-delay: 0.8s, 1.0s; animation-duration: 12s, 1.6s; }
+        .sparkle:nth-child(4) { left: 35%; top: 40%; animation-delay: 1.2s, 0.3s; animation-duration: 18s, 2.5s; }
+        .sparkle:nth-child(5) { left: 45%; top: 50%; animation-delay: 1.6s, 0.9s; animation-duration: 10s, 1.9s; }
+        .sparkle:nth-child(6) { left: 55%; top: 60%; animation-delay: 2.0s, 0.5s; animation-duration: 20s, 2.3s; }
+        .sparkle:nth-child(7) { left: 65%; top: 70%; animation-delay: 2.4s, 1.3s; animation-duration: 9s, 1.5s; }
+        .sparkle:nth-child(8) { left: 75%; top: 80%; animation-delay: 2.8s, 0.7s; animation-duration: 17s, 2.6s; }
+        .sparkle:nth-child(9) { left: 85%; top: 15%; animation-delay: 3.2s, 1.1s; animation-duration: 13s, 2.0s; }
+        .sparkle:nth-child(10) { left: 95%; top: 25%; animation-delay: 3.6s, 0.1s; animation-duration: 19s, 1.7s; }
+        
+        .sparkle:nth-child(11) { left: 10%; top: 85%; animation-delay: 0.3s, 0.8s; animation-duration: 11s, 2.1s; }
+        .sparkle:nth-child(12) { left: 20%; top: 75%; animation-delay: 0.7s, 1.2s; animation-duration: 15s, 1.3s; }
+        .sparkle:nth-child(13) { left: 30%; top: 65%; animation-delay: 1.1s, 0.4s; animation-duration: 13s, 2.4s; }
+        .sparkle:nth-child(14) { left: 40%; top: 55%; animation-delay: 1.5s, 0.9s; animation-duration: 17s, 1.8s; }
+        .sparkle:nth-child(15) { left: 50%; top: 45%; animation-delay: 1.9s, 1.4s; animation-duration: 9s, 2.2s; }
+        .sparkle:nth-child(16) { left: 60%; top: 35%; animation-delay: 2.3s, 0.6s; animation-duration: 21s, 1.4s; }
+        .sparkle:nth-child(17) { left: 70%; top: 25%; animation-delay: 2.7s, 1.0s; animation-duration: 8s, 2.5s; }
+        .sparkle:nth-child(18) { left: 80%; top: 35%; animation-delay: 3.1s, 0.2s; animation-duration: 16s, 1.9s; }
+        .sparkle:nth-child(19) { left: 90%; top: 45%; animation-delay: 3.5s, 1.5s; animation-duration: 12s, 1.6s; }
+        .sparkle:nth-child(20) { left: 8%; top: 55%; animation-delay: 3.9s, 0.8s; animation-duration: 18s, 2.7s; }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes sparkleFloat {
+            0% { 
+                transform: translateX(0px) translateY(0px) rotate(0deg);
+            }
+            25% {
+                transform: translateX(40px) translateY(-30px) rotate(90deg);
+            }
+            50% {
+                transform: translateX(-35px) translateY(25px) rotate(180deg);
+            }
+            75% {
+                transform: translateX(30px) translateY(-40px) rotate(270deg);
+            }
+            100% { 
+                transform: translateX(0px) translateY(0px) rotate(360deg);
+            }
+        }
+        
+       @keyframes sparkleGlow {
+    0% { 
+        opacity: 0.2; 
+        transform: scale(0.6);
+        box-shadow: 0 0 4px #FF1493, 0 0 8px #FF69B4, 0 0 12px rgba(255, 20, 147, 0.3);
+    }
+    25% { 
+        opacity: 0.9; 
+        transform: scale(1.6);
+        box-shadow: 0 0 16px #FF1493, 0 0 32px #FF69B4, 0 0 48px rgba(255, 20, 147, 0.6);
+    }
+    50% { 
+        opacity: 0.4; 
+        transform: scale(1.0);
+        box-shadow: 0 0 8px #FF1493, 0 0 16px #FF69B4, 0 0 24px rgba(255, 20, 147, 0.4);
+    }
+    75% { 
+        opacity: 1.2; 
+        transform: scale(1.8);
+        box-shadow: 0 0 20px #FF1493, 0 0 40px #FF69B4, 0 0 60px rgba(255, 20, 147, 0.7);
+    }
+    100% { 
+        opacity: 0.3; 
+        transform: scale(0.8);
+        box-shadow: 0 0 6px #FF1493, 0 0 12px #FF69B4, 0 0 18px rgba(255, 20, 147, 0.35);
+    }
+}
+        
+        .yarn-container {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 35px;
+            padding: 40px 30px;
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.2),
+                0 15px 30px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            text-align: center;
+            max-width: 850px;
+            width: 90%;
+            position: relative;
+            z-index: 1;
+            margin: 25px auto;
+            min-height: 550px;
+        }
+        
+        .brand-title {
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 8px;
+            font-size: 2.0em;
+            text-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 10px;
+            font-size: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+            font-weight: 300;
+            letter-spacing: 1.2px;
+            font-style: italic;
+        }
+        
+        .copyright {
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 18px;
+            font-size: 17px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            font-weight: 300;
+            letter-spacing: 0.8px;
+        }
+        
+        .gradient-yarn {
+            width: 100%;
+            height: 70px;
+            background: linear-gradient(to right, 
+                #FF8C42 0%, 
+                #FFA726 12%,
+                #FFB74D 25%,
+                #FFCC80 38%, 
+                #FFE082 50%,
+                #FFECB3 63%,
+                #FFF3E0 75%, 
+                #FFFFFF 87%,
+                #FFD700 100%);
+            border-radius: 35px;
+            margin: 25px 0;
+            position: relative;
+            box-shadow: 
+                0 10px 25px rgba(0,0,0,0.25),
+                inset 0 2px 0 rgba(255,255,255,0.4);
+        }
+        
+        .gradient-yarn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            background-image: 
+                radial-gradient(circle at 10% 25%, rgba(255,215,0,0.9) 1.2px, transparent 1.8px),
+                radial-gradient(circle at 20% 75%, rgba(255,165,0,0.8) 1px, transparent 1.5px),
+                radial-gradient(circle at 30% 15%, rgba(255,140,0,0.7) 0.9px, transparent 1.3px),
+                radial-gradient(circle at 40% 85%, rgba(255,215,0,0.6) 1.1px, transparent 1.6px),
+                radial-gradient(circle at 50% 35%, rgba(255,165,0,0.9) 1px, transparent 1.4px),
+                radial-gradient(circle at 60% 90%, rgba(255,140,0,0.8) 1.2px, transparent 1.7px),
+                radial-gradient(circle at 70% 20%, rgba(255,215,0,0.7) 0.8px, transparent 1.2px),
+                radial-gradient(circle at 80% 65%, rgba(255,165,0,0.6) 0.9px, transparent 1.3px),
+                radial-gradient(circle at 90% 10%, rgba(255,140,0,0.8) 1.1px, transparent 1.5px),
+                radial-gradient(circle at 95% 80%, rgba(255,215,0,0.9) 1px, transparent 1.4px);
+            background-size: 25px 25px;
+        }
+        
+        .yarn-container p {
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+            font-size: 17px;
+            margin: 8px 0;
+        }
+        
+        .yarn-container em {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .color-breakdown {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+        
+        .color-sample {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 5px;
+        }
+        
+        .color-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-bottom: 8px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.35);
+        }
+        
+        .orange-main { 
+            background: linear-gradient(45deg, #FF8C42, #FFA726, #FFB74D);
+        }
+        .mohair { 
+            background: linear-gradient(45deg, #FFCC80, #FFE082, #FFECB3);
+            border: 2px solid rgba(255,215,0,0.6);
+        }
+        .lurex { 
+    background: linear-gradient(45deg, #C0C0C0, #E5E5E5, #F8F8FF);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.35), 0 0 20px rgba(192,192,192,0.6);
+    border: 1px solid #C0C0C0;
+}
+        .sequins { 
+            background: linear-gradient(45deg, #FFF3E0, #FFFFFF, #FFE082);
+            border: 1px solid #FFD700;
+        }
+        .fire-truck { 
+            background: linear-gradient(45deg, #FF4500, #FF6347, #FF8C42);
+        }
+        
+        .color-name {
+            font-size: 0.85em;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: bold;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        }
+        
+        .description {
+            margin-top: 30px;
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.7;
+            text-align: center;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+        }
+        
+        .description p {
+            margin: 15px 0;
+        }
+
+        .icon {
+            font-size: 1.1em;
+            margin: 0 8px;
+            color: rgba(255, 255, 255, 0.85);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+        }
+        
+        .modal-button {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15));
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 30px;
+            padding: 12px 30px;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(15px);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+            margin-top: 20px;
+            display: inline-block;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        .modal-button:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.25));
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, 
+                rgba(255, 140, 66, 0.95) 0%,
+                rgba(255, 167, 38, 0.95) 20%,
+                rgba(255, 183, 77, 0.95) 40%,
+                rgba(255, 204, 128, 0.95) 60%,
+                rgba(255, 224, 130, 0.95) 80%,
+                rgba(255, 236, 179, 0.95) 100%
+            );
+            backdrop-filter: blur(25px);
+            margin: 3% auto;
+            padding: 35px;
+            border-radius: 35px;
+            width: 88%;
+            max-width: 1100px;
+            max-height: 88vh;
+            overflow-y: auto;
+            position: relative;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            animation: modalSlideIn 0.5s ease-out;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-60px) scale(0.85);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .close {
+            color: rgba(255, 255, 255, 0.85);
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            position: absolute;
+            right: 25px;
+            top: 20px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+        }
+        
+        .close:hover {
+            color: rgba(255, 255, 255, 1);
+            transform: scale(1.15);
+        }
+        
+        .modal-title {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 36px;
+            margin-bottom: 25px;
+            text-align: center;
+            text-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+            font-weight: 500;
+        }
+        
+        .modal-section {
+            margin-bottom: 20px;
+            line-height: 1.7;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 18px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .modal-section strong {
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+            display: block;
+            margin-bottom: 12px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        
+        .modal-section p {
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+            margin: 10px 0;
+            padding-left: 0;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        /* Стили для брендов мохера */
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .brand-card {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .brand-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .brand-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 10px;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .brand-country {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .brand-price {
+            font-size: 16px;
+            color: rgba(255, 215, 0, 0.9);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .brand-description {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.4;
+        }
+
+        .price-budget { color: rgba(144, 238, 144, 0.9); }
+        .price-medium { color: rgba(255, 215, 0, 0.9); }
+        .price-premium { color: rgba(255, 140, 0, 0.9); }
+        
+        /* Скролл для модального окна */
+        .modal-content::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        .modal-content::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+        }
+        
+        .modal-content::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 12px;
+        }
+        
+        .modal-content::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Адаптивность для планшетов */
+        @media (max-width: 768px) {
+            .yarn-container {
+                padding: 25px;
+                margin: 20px auto;
+                border-radius: 25px;
+                max-width: 95%;
+            }
+            
+            .brand-title {
+                font-size: 1.7em;
+            }
+            
+            .subtitle {
+                font-size: 18px;
+            }
+            
+            .copyright {
+                font-size: 15px;
+            }
+            
+            .yarn-container p {
+                font-size: 15px;
+            }
+            
+            .description {
+                font-size: 15px;
+            }
+            
+            .color-circle {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .modal-content {
+                width: 92%;
+                padding: 25px;
+            }
+            
+            .modal-title {
+                font-size: 28px;
+            }
+            
+            .modal-section strong {
+                font-size: 18px;
+            }
+            
+            .modal-section p {
+                font-size: 15px;
+            }
+            
+            .brand-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .brand-card {
+                padding: 15px;
+            }
+        }
+
+        /* Адаптивность для мобильных */
+        @media (max-width: 480px) {
+            .yarn-container {
+                padding: 20px;
+                margin: 15px auto;
+                border-radius: 20px;
+                max-width: 98%;
+            }
+            
+            .brand-title {
+                font-size: 1.5em;
+            }
+            
+            .subtitle {
+                font-size: 16px;
+            }
+            
+            .copyright {
+                font-size: 13px;
+            }
+            
+            .yarn-container p {
+                font-size: 13px;
+            }
+            
+            .description {
+                font-size: 13px;
+            }
+            
+            .gradient-yarn {
+                height: 50px;
+                border-radius: 25px;
+            }
+            
+            .color-circle {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .color-name {
+                font-size: 0.75em;
+            }
+            
+            .modal-content {
+                width: 96%;
+                padding: 20px;
+                margin: 8% auto;
+            }
+            
+            .modal-title {
+                font-size: 24px;
+            }
+            
+            .modal-section strong {
+                font-size: 16px;
+            }
+            
+            .modal-section p {
+                font-size: 14px;
+            }
+        }
+
+        /* Для больших мониторов */
+        @media (min-width: 1200px) {
+            .yarn-container {
+                max-width: 1000px;
+            }
+        }
+
+        /* Для очень больших мониторов */
+        @media (min-width: 1600px) {
+            .yarn-container {
+                max-width: 1200px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+   <div class="sparkle"></div>
+   <div class="sparkle"></div>
+   <div class="sparkle"></div>
+   <div class="sparkle"></div>
+   <div class="sparkle"></div>
+   <div class="sparkle"></div>
+   <div class="sparkle"></div>
+   <div class="sparkle"></div>
+   <div class="sparkle"></div>
+   <div class="sparkle"></div>
+   <div class="sparkle"></div>
+   <div class="sparkle"></div>
+   <div class="sparkle"></div>
+   <div class="sparkle"></div>
+   <div class="sparkle"></div>
+   <div class="sparkle"></div>
+   <div class="sparkle"></div>
+   <div class="sparkle"></div>
+   <div class="sparkle"></div>
+   <div class="sparkle"></div>
+   
+   <div class="yarn-container">
+       <div class="brand-title">⟡ ПРЯЖА "ПОЖАРНАЯ МАШИНА" ⟡</div>
+       <div class="copyright">© Вязать здорово 🔮 Магия узора | 2025</div>
+       <div class="subtitle">Крючки, спицы, 2 мотка</div>
+       
+       <div class="gradient-yarn"></div>
+       
+       <p><strong>Мохер длинноворсовой + люрекс (серебристая металлизированная нить) + пайетки с шишибриками</strong></p>
+       <p><em>Магазинная пряжа в оранжевой гамме, с добавлением искрящихся декоративных элементов</em></p>
+       
+       <div class="color-breakdown">
+           <div class="color-sample">
+               <div class="color-circle orange-main"></div>
+               <div class="color-name">Оранжевый</div>
+           </div>
+           <div class="color-sample">
+               <div class="color-circle mohair"></div>
+               <div class="color-name">Мохер</div>
+           </div>
+           <div class="color-sample">
+               <div class="color-circle lurex"></div>
+               <div class="color-name">Люрекс</div>
+           </div>
+           <div class="color-sample">
+               <div class="color-circle sequins"></div>
+               <div class="color-name">Пайетки</div>
+           </div>
+           <div class="color-sample">
+               <div class="color-circle fire-truck"></div>
+               <div class="color-name">Огненный</div>
+           </div>
+       </div>
+
+       
+       
+       <div class="description">
+           <p><span class="icon">🔥</span> <strong>Характер пряжи:</strong> Колкая, но прощающая - пушистая, скрывающая неидеальности за своим ворсом</p>
+           <p><span class="icon">✨</span> <strong>Особенности:</strong> Любит горизонтальное вязание в уютной обстановке с подкастами и дружеским общением</p>
+           <p><span class="icon">🎯</span> <strong>Предпочтения:</strong> Верна крючку всем сердцем, не признает компромиссов в выборе инструмента</p>
+           <p><span class="icon">🧠</span> <strong>Особенность работы:</strong> Систематично делит проекты на части в уме, считает каждую петлю как медитацию</p>
+           <p><span class="icon">💫</span> <strong>Результат:</strong> Создает яркие, запоминающиеся изделия с характером и огоньком</p>
+           
+           <button class="modal-button" onclick="openModal()">
+    <span class="icon">🎨</span> Секреты "Пожарной машины"
+</button>
+
+<button class="modal-button" onclick="openBrandsModal()" style="margin-left: 15px;">
+    <span class="icon">🏪</span> Марки мохера
+</button>
+       </div>
+   </div>
+   
+   <!-- Модальное окно с расширенной информацией -->
+   <div id="yarnModal" class="modal">
+       <div class="modal-content">
+           <span class="close" onclick="closeModal()">&times;</span>
+           <h2 class="modal-title"><span class="icon">🎨</span> Секреты коллекции "Пожарная машина"</h2>
+           
+           <div class="modal-section">
+               <strong>🕐 РЕЖИМ ТВОРЧЕСТВА:</strong>
+               <p>• Мечтает о дневном вязании, но реальность диктует вечерние часы</p>
+               <p>• Находит вдохновение в горизонтальном положении - лежа с проектом</p>
+               <p>• Вязание под подкасты или в компании коллег за разговорами</p>
+               <p>• Время творчества = время общения и познания нового</p>
+           </div>
+           
+           <div class="modal-section">
+               <strong>🧶 ФИЛОСОФИЯ МОХЕРА:</strong>
+               <p>• "Пушистый и колкий" - как сама жизнь, с противоречиями</p>
+               <p>• Петли могут быть кривые, но ворс все скроет и простит</p>
+               <p>• Длинноворсовой мохер - магазинная классика для уверенных мастериц</p>
+               <p>• Предпочитает готовые светлые тона, избегает темных оттенков</p>
+               <p>• Сейчас переживает "оранжевый период" - покупает все в этой гамме</p>
+               <p>• Практичный выбор: качественная бобинная или магазинная пряжа</p>
+           </div>
+           
+           <div class="modal-section">
+               <strong>🎯 ВЕРНОСТЬ КРЮЧКУ:</strong>
+               <p>• Безоговорочная преданность крючку vs спицам</p>
+               <p>• "Крючок! Крючок! и ещё раз Крючок!" - жизненное кредо</p>
+               <p>• Спицы остаются в тени, но всегда под рукой (на всякий случай)</p>
+               <p>• Крючок дает свободу, контроль и удовольствие от процесса</p>
+           </div>
+           
+           <div class="modal-section">
+               <strong>🧠 МЕНТАЛЬНАЯ МАТЕМАТИКА:</strong>
+               <p>• Странная привычка: делить вязание на части в уме</p>
+               <p>• Проект существует сразу в нескольких измерениях</p>
+               <p>• Систематизация помогает не потеряться в больших работах</p>
+               <p>• Вязание лежа - поза для размышлений и планирования</p>
+           </div>
+           
+           <div class="modal-section">
+               <strong>💔 ЭПИЧЕСКИЕ ПРОВАЛЫ:</strong>
+               <p>• Свитер "Снежинка" №3 или №4 - до сих пор необъяснимая загадка</p>
+               <p>• Из 20+ связанных свитеров этой модели - один сел безобразно</p>
+               <p>• Ирландское кружево из "Дуплет" - чуть не свихнулась при сборке</p>
+               <p>• Урок на всю жизнь: некоторые техники требуют особого настроя</p>
+           </div>
+           
+           <div class="modal-section">
+               <strong>✨ КОЛЛЕКЦИЯ "ПОЖАРНАЯ МАШИНА":</strong>
+               <p>• Оранжевый мохер (магазинный) + пряжа Суронг в одном изделии</p>
+               <p>• Тайно протащенный люрекс для искристости</p>
+               <p>• Пайетки и шишибрики как изюминка коллекции</p>
+               <p>• Авторская мини-коллекция из готовых материалов</p>
+               <p>• Каждое изделие - маленький праздник цвета из доступной пряжи</p>
+           </div>
+           
+           <div class="modal-section">
+               <strong>🏝️ ФИЛОСОФИЯ ВЫЖИВАНИЯ:</strong>
+               <p>• На необитаемом острове: крючок и мохер (+ тайный люрекс)</p>
+               <p>• Практичный подход: функциональность важнее красоты</p>
+               <p>• Два мотка - оптимальное решение для начала</p>
+               <p>• Минимализм в инструментах, максимализм в творчестве</p>
+           </div>
+           
+           <div class="modal-section">
+               <strong>🌈 ПРИНЦИПЫ ГАРМОНИИ:</strong>
+               <p>• "Ничего бы не меняла в мире вязания"</p>
+               <p>• Здоровый принцип: надоел блогер - перестаю смотреть</p>
+               <p>• Мир снова становится прекрасным без негатива</p>
+               <p>• Фокус на позитиве и собственном творческом росте</p>
+               <p>• Вязание как источник радости, а не стресса</p>
+           </div>
+           
+           <div class="modal-section">
+               <strong>🎨 ЦВЕТОВАЯ ПСИХОЛОГИЯ:</strong>
+               <p>• Оранжевый период = время энергии и оптимизма</p>
+               <p>• Избегание темных оттенков - выбор в пользу света</p>
+               <p>• Люрекс и пайетки - потребность в празднике</p>
+               <p>• Мохер как основа - тактильное удовольствие важно</p>
+           </div>
+<div class="modal-section">
+    <strong>💜 ЛЮБИМЫЕ ОТТЕНКИ:</strong>
+    <p>• <strong>Фуксия:</strong> Яркий, дерзкий, энергичный - второй любимый цвет после оранжевого</p>
+    <p>• <strong>Оранжевые тона:</strong> От нежного персикового до огненно-красного</p>
+    <p>• <strong>Принцип выбора:</strong> Только светлые и яркие оттенки, никаких темных тонов</p>
+    <p>• <strong>Люрекс:</strong> Серебристая металлизированная нить для особого блеска</p>
+    <p>• <strong>Сочетания:</strong> Фуксия + оранжевый + серебристый люрекс = идеальная формула</p>
+</div>
+
+           <div class="modal-section">
+               <strong>🛒 СЕКРЕТЫ ВЫБОРА МОХЕРА:</strong>
+               <p>• <strong>Бюджетные варианты (150-350 руб.):</strong> Пехорка, Камтекс, Kartopu - для практики и повседневных вещей</p>
+               <p>• <strong>Средний сегмент (400-800 руб.):</strong> Alize, Nako, Bergere de France - оптимальное качество для красивых изделий</p>
+               <p>• <strong>Премиум (800-1400 руб.):</strong> Lana Grossa, Filatura di Crosa - для особых проектов и подарков</p>
+               <p>• <strong>Совет мастерицы:</strong> Начинайте с турецкого мохера средней ценовой категории - лучший баланс цены и качества</p>
+               <p>• <strong>Секрет покупки:</strong> Покупайте сразу весь объем одной партией - оттенки могут отличаться</p>
+           </div>
+       </div>
+   </div>
+<!-- Модальное окно с марками мохера -->
+<div id="brandsModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeBrandsModal()">&times;</span>
+        <h2 class="modal-title"><span class="icon">🏪</span> Рекомендуемые марки мохера</h2>
+        
+        <div class="brand-grid">
+            <!-- Российские производители -->
+            <div class="brand-card">
+                <div class="brand-name">🇷🇺 Пехорка "Мохеровая"</div>
+                <div class="brand-country">Россия</div>
+                <div class="brand-price price-budget">💰 Бюджет: 180-250 руб.</div>
+                <div class="brand-description">Классический российский мохер, доступный в большинстве магазинов. Хорошее соотношение цена-качество для начинающих. 30% мохер, 20% шерсть, 50% акрил.</div>
+            </div>
+            
+            <div class="brand-card">
+                <div class="brand-name">🇷🇺 Камтекс "Мохер Люкс"</div>
+                <div class="brand-country">Россия</div>
+                <div class="brand-price price-budget">💰 Бюджет: 220-320 руб.</div>
+                <div class="brand-description">Мягкий длинноворсовой мохер от тверского производителя. Меньше колется чем обычный мохер. Отличная альтернатива импортным аналогам по доступной цене.</div>
+            </div>
+            
+            <div class="brand-card">
+                <div class="brand-name">🇷🇺 Семеновская "Мохер де Люкс"</div>
+                <div class="brand-country">Россия</div>
+                <div class="brand-price price-medium">💎 Средний: 350-480 руб.</div>
+                <div class="brand-description">Премиум российский мохер из Семенова. Очень пушистый, с естественным блеском, приятный в работе. Высокое содержание натурального мохера.</div>
+            </div>
+
+            <!-- Турецкие производители -->
+            <div class="brand-card">
+                <div class="brand-name">🇹🇷 Alize Mohair Classic</div>
+                <div class="brand-country">Турция</div>
+                <div class="brand-price price-medium">💎 Средний: 320-380 руб.</div>
+                <div class="brand-description">Популярный турецкий мохер. Богатая палитра, стабильное качество, длинный ворс.</div>
+            </div>
+            
+            <div class="brand-card">
+                <div class="brand-name">🇹🇷 Kartopu Mohair</div>
+                <div class="brand-country">Турция</div>
+                <div class="brand-price price-budget">💰 Бюджет: 280-350 руб.</div>
+                <div class="brand-description">Доступный турецкий мохер. Мягкий, в меру пушистый, широкая цветовая гамма.</div>
+            </div>
+            
+            <div class="brand-card">
+                <div class="brand-name">🇹🇷 Nako Mohair Delicate</div>
+                <div class="brand-country">Турция</div>
+                <div class="brand-price price-medium">💎 Средний: 450-600 руб.</div>
+                <div class="brand-description">Деликатный мохер для чувствительной кожи. Очень мягкий, почти не колется.</div>
+            </div>
+
+            <!-- Итальянские производители -->
+            <div class="brand-card">
+                <div class="brand-name">🇮🇹 Lana Grossa Mohair Luxe</div>
+                <div class="brand-country">Италия</div>
+                <div class="brand-price price-premium">✨ Премиум: 800-1200 руб.</div>
+                <div class="brand-description">Элитный итальянский мохер. Изысканные оттенки, невероятная мягкость.</div>
+            </div>
+            
+            <div class="brand-card">
+                <div class="brand-name">🇮🇹 Filatura di Crosa Mohair</div>
+                <div class="brand-country">Италия</div>
+                <div class="brand-price price-premium">✨ Премиум: 900-1400 руб.</div>
+                <div class="brand-description">Профессиональный мохер для дизайнерских изделий. Исключительное качество.</div>
+            </div>
+
+            <!-- Другие зарубежные -->
+            <div class="brand-card">
+                <div class="brand-name">🇫🇷 Bergere de France Mohair</div>
+                <div class="brand-country">Франция</div>
+                <div class="brand-price price-medium">💎 Средний: 550-750 руб.</div>
+                <div class="brand-description">Французское качество по разумной цене. Хорошо держит форму, яркие цвета.</div>
+            </div>
+            
+            <div class="brand-card">
+                <div class="brand-name">🇩🇪 Schachenmayr Mohair Wool</div>
+                <div class="brand-country">Германия</div>
+                <div class="brand-price price-medium">💎 Средний: 600-800 руб.</div>
+                <div class="brand-description">Немецкое качество и надежность. Стабильная толщина нити, равномерный ворс.</div>
+            </div>
+            
+            <div class="brand-card">
+                <div class="brand-name">🇵🇹 Rosarios4 Mohair Sublime</div>
+                <div class="brand-country">Португалия</div>
+                <div class="brand-price price-medium">💎 Средний: 500-700 руб.</div>
+                <div class="brand-description">Португальский мохер с шелковистым блеском. Элегантные пастельные тона.</div>
+            </div>
+        </div>
+    </div>
+</div>
+   
+   <script>
+function openBrandsModal() {
+    document.getElementById('brandsModal').style.display = 'block';
+}
+
+function closeBrandsModal() {
+    document.getElementById('brandsModal').style.display = 'none';
+}
+
+// Замени существующую функцию window.onclick на эту:
+window.onclick = function(event) {
+    const modal = document.getElementById('yarnModal');
+    const brandsModal = document.getElementById('brandsModal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+    if (event.target == brandsModal) {
+        brandsModal.style.display = 'none';
+    }
+}
+
+// Замени существующий обработчик Escape на этот:
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeModal();
+        closeBrandsModal();
+    }
+});
+       function openModal() {
+           document.getElementById('yarnModal').style.display = 'block';
+       }
+       
+       function closeModal() {
+           document.getElementById('yarnModal').style.display = 'none';
+       }
+       
+       // Закрытие модального окна при клике вне его
+       window.onclick = function(event) {
+           const modal = document.getElementById('yarnModal');
+           if (event.target == modal) {
+               modal.style.display = 'none';
+           }
+       }
+       
+       // Закрытие модального окна по клавише Escape
+       document.addEventListener('keydown', function(event) {
+           if (event.key === 'Escape') {
+               closeModal();
+           }
+       });
+   </script>
+</body>
+</html>
